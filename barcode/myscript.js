@@ -3,7 +3,7 @@ var list
 // The initial method called on page load
 function init() {
     // load details from data file
-    loadDataAndParse('ShoppingItems.json')
+    loadDataAndParse('Student.json')
 }
 
 function getItemWithBarCode(event) {
@@ -59,7 +59,7 @@ function loadContents(fileName, callback){
 //   -1 when not found
 function findWithBarcode(barcode) {
     for (var i = 0; i < list.length; i++) {
-        if (barcode == list[i].id) {
+        if (barcode == list[i].REGD.NO) {
             // found the item
             return i
         }
@@ -69,13 +69,10 @@ function findWithBarcode(barcode) {
 
 function detailsOfItem(index) {
     
-    var details = "id: " + list[index].id
+    var details = "id: " + list[index].REGD.NO
     details += "<br>"
-    details += list[index].item
+    details += list[index].NAME
     details += "<br>"
-    details += list[index].description
-    details += "<br>"
-    details += "Rs. " + list[index].price
-    
+    details += list[index].BRANCH
     return details
 }
